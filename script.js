@@ -6,7 +6,11 @@ const tracks = [
     kind: "Work Experience",
     duration: "4:12",
     link: "projects/purezen-founders-office.html?v=12",
-    explicit: true
+    explicit: true,
+    problem: "Retention and AOV were underperforming due to static segmentation and manual campaign setup.",
+    approach: "Built dynamic cohort tagging and automated campaign logic across Shopify Flow and ZOKO.",
+    tools: "Shopify Flow, ZOKO, RFM segmentation, persona-led GTM planning",
+    result: "Repeat purchases +30%, AOV +18%, and manual segmentation effort reduced by 95%."
   },
   {
     title: "Ather Case Analysis",
@@ -15,7 +19,11 @@ const tracks = [
     kind: "Project",
     duration: "3:58",
     link: "projects/ather-case-analysis.html?v=12",
-    explicit: false
+    explicit: false,
+    problem: "Subsidy cuts created uncertainty in profitability and strategic planning.",
+    approach: "Combined financial modeling with ML-based scenario analysis and dashboard communication.",
+    tools: "Power BI, Tableau, forecasting models, SWOT framework",
+    result: "Reconciled projected and actual losses and delivered actionable optimization recommendations."
   },
   {
     title: "Web Vulnerability Scanner",
@@ -24,7 +32,11 @@ const tracks = [
     kind: "Project",
     duration: "4:25",
     link: "projects/web-vulnerability-scanner.html?v=12",
-    explicit: true
+    explicit: true,
+    problem: "Needed a practical scanner to detect common web vulnerabilities reliably at scale.",
+    approach: "Engineered recursive crawling + fuzzing with robust exception handling and report automation.",
+    tools: "Python, argparse, Flask test app, OWASP Top 10 checks",
+    result: "Achieved 100% detection on known seeded flaws in controlled validation."
   },
   {
     title: "SaaS Profitability Pricing",
@@ -33,7 +45,11 @@ const tracks = [
     kind: "Project",
     duration: "3:11",
     link: "projects/saas-profitability-pricing.html?v=12",
-    explicit: false
+    explicit: false,
+    problem: "SaaS cohorts showed under-profitability and inefficient pricing structures.",
+    approach: "Modeled pricing-performance relationships using regression and ensemble methods across cohorts.",
+    tools: "Logistic regression, ensemble modeling, cohort analytics, 3C pipeline",
+    result: "Projected +43% ARR, ~5% churn reduction, and ~4% LTV uplift."
   }
 ];
 
@@ -46,6 +62,10 @@ const tabButtons = document.querySelectorAll(".tab-btn");
 const pageTransition = document.getElementById("pageTransition");
 const transitionTitle = document.getElementById("transitionTitle");
 const heroCover = document.getElementById("heroCover");
+const storyProblem = document.getElementById("storyProblem");
+const storyApproach = document.getElementById("storyApproach");
+const storyTools = document.getElementById("storyTools");
+const storyResult = document.getElementById("storyResult");
 
 let currentIndex = 0;
 
@@ -86,8 +106,11 @@ function renderTracks() {
     `;
 
     row.addEventListener("click", () => {
-      currentIndex = index;
-      navigateWithTransition(track.link, track.title);
+      if (index === currentIndex) {
+        navigateWithTransition(track.link, track.title);
+        return;
+      }
+      setTrack(index);
     });
     trackList.appendChild(row);
   });
@@ -101,6 +124,10 @@ function setTrack(index) {
   caseLink.href = track.link;
   caseLink.textContent = `Open case study: ${track.title}`;
   caseLink.setAttribute("aria-label", `Open case study for ${track.title}`);
+  if (storyProblem) storyProblem.textContent = track.problem;
+  if (storyApproach) storyApproach.textContent = track.approach;
+  if (storyTools) storyTools.textContent = track.tools;
+  if (storyResult) storyResult.textContent = track.result;
   renderTracks();
 }
 

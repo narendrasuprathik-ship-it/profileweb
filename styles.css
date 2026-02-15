@@ -17,6 +17,7 @@ body {
   font-family: "Montserrat", sans-serif;
   color: var(--text);
   background: #000;
+  scroll-behavior: smooth;
 }
 
 .app-layout {
@@ -128,6 +129,14 @@ body {
   font-size: 0.95rem;
 }
 
+.hero-intro {
+  margin: 12px 0 0;
+  max-width: 720px;
+  color: #e8f0f8;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
 .hero-meta span + span::before {
   content: "•";
   margin-right: 8px;
@@ -145,6 +154,29 @@ body {
 .content {
   padding: 0 30px 38px;
   background: linear-gradient(180deg, rgba(18, 18, 18, 0.06), rgba(18, 18, 18, 1) 18%);
+}
+
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 30px;
+}
+
+.section-nav a {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.section-nav a:hover {
+  border-color: rgba(30, 215, 96, 0.6);
+  color: #d8ffea;
 }
 
 .controls {
@@ -303,6 +335,77 @@ body {
   color: var(--muted);
 }
 
+.info-section {
+  margin-top: 22px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.info-section h2 {
+  margin: 0 0 10px;
+}
+
+.info-section p {
+  margin: 0 0 10px;
+  line-height: 1.55;
+  color: #d9e4ee;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.story-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.story-card h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+.story-card p {
+  margin: 0;
+  color: #cfdbe6;
+  font-size: 0.92rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-list span {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 0.83rem;
+  color: #dfebf5;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-links a {
+  text-decoration: none;
+  color: #07180d;
+  background: var(--spotify);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+}
+
 .page-transition {
   position: fixed;
   inset: 0;
@@ -372,6 +475,10 @@ body {
     font-size: 0.9rem;
   }
 
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
   .now-bar {
     flex-direction: column;
     align-items: flex-start;
@@ -402,6 +509,10 @@ body {
 
   .content {
     padding: 0 16px 24px;
+  }
+
+  .section-nav {
+    padding: 0 16px;
   }
 
   .row {
