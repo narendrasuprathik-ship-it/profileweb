@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="Volleyball illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb073"/>
+      <stop offset="1" stop-color="#5a2f2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="24" fill="url(#bg)"/>
+  <rect x="0" y="236" width="320" height="84" fill="#9d6a42"/>
+  <circle cx="165" cy="155" r="82" fill="#f8f4ea"/>
+  <path d="M165 73a82 82 0 0 1 64 31c-30 7-55 23-71 46-8-25-6-50 7-77z" fill="#e8dfcf"/>
+  <path d="M104 102a82 82 0 0 0-21 85c22-16 49-24 79-22-18-20-33-41-58-63z" fill="#ece3d3"/>
+  <path d="M91 206a82 82 0 0 0 73 31c-8-26-5-50 11-72-33-1-58 9-84 41z" fill="#e2d8c4"/>
+  <path d="M244 142a82 82 0 0 1-45 87c-5-30-19-52-41-66 29-20 54-27 86-21z" fill="#e9dfcf"/>
+  <circle cx="65" cy="70" r="30" fill="#ffffff1f"/>
+</svg>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suprathik Narendra | Recreation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #121212;
+        --fg: #ffffff;
+        --muted: #b3b3b3;
+        --accent: #1ed760;
+        --line: rgba(255, 255, 255, 0.1);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        position: relative;
+        margin: 0;
+        font-family: Montserrat, Arial, sans-serif;
+        color: var(--fg);
+        background: #090909;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 72vh;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 14% -12%, rgba(131, 178, 216, 0.36), transparent 42%),
+          radial-gradient(circle at 86% -18%, rgba(74, 122, 160, 0.24), transparent 40%),
+          linear-gradient(180deg, #759ab8 0%, #456c88 22%, #26485f 44%, #152e42 60%, rgba(9, 9, 9, 0.86) 78%, rgba(9, 9, 9, 0) 100%);
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 34px 14px 70px;
+      }
+
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .hero {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 20px;
+        align-items: end;
+      }
+
+      .cover {
+        width: 220px;
+        aspect-ratio: 1;
+        border-radius: 6px;
+        background-image: url("/assets/IMG_0889.PNG");
+        background-size: cover;
+        background-position: center 58%;
+        box-shadow: 0 18px 45px rgba(0,0,0,0.42);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sticker {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background: #fff;
+        color: #111;
+        font-size: 0.54rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        padding: 4px 6px;
+      }
+
+      .hero p { margin: 0 0 8px; }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 7vw, 4.3rem);
+        line-height: 0.94;
+      }
+
+      .hero-meta {
+        margin-top: 12px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .workspace {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 16px;
+      }
+
+      .table {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(0, 0, 0, 0.28);
+      }
+
+      .head,
+      .row {
+        display: grid;
+        grid-template-columns: 42px 2.2fr 1.4fr 1.2fr 70px;
+        gap: 10px;
+        align-items: center;
+        padding: 12px 14px;
+      }
+
+      .head {
+        color: var(--muted);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .track {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .row {
+        width: 100%;
+        border: none;
+        color: inherit;
+        text-align: left;
+        font: inherit;
+        background: transparent;
+        cursor: pointer;
+        transition: background 180ms ease;
+      }
+
+      .row:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .row.active {
+        color: var(--accent);
+      }
+
+      .title-cell {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hobby-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 6px;
+        object-fit: cover;
+      }
+
+      .num-cell {
+        position: relative;
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+      }
+
+      .num-index {
+        color: var(--muted);
+        transition: opacity 140ms ease;
+      }
+
+      .num-control {
+        border: none;
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 800;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 160ms ease;
+        position: absolute;
+        inset: 1px;
+      }
+
+      .row:hover .num-index,
+      .row:focus-within .num-index,
+      .row.show-control .num-index {
+        opacity: 0;
+      }
+
+      .row:hover .num-control,
+      .row:focus-within .num-control,
+      .row.show-control .num-control {
+        opacity: 1;
+      }
+
+      .sub {
+        color: var(--muted);
+        margin-top: 2px;
+      }
+
+      .duration {
+        justify-self: end;
+        color: var(--muted);
+      }
+
+      .detail-panel {
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(0, 0, 0, 0.38);
+        padding: 16px;
+        min-height: 300px;
+      }
+
+      .detail-panel h2 {
+        margin: 0 0 8px;
+        font-size: 1.28rem;
+      }
+
+      .detail-meta {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      #detailText {
+        margin: 0;
+        color: #dbdbdb;
+        line-height: 1.6;
+        transition: opacity 240ms ease, transform 240ms ease;
+      }
+
+      #detailText.updating {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .cover { width: min(300px, 100%); }
+        .workspace { grid-template-columns: 1fr; }
+        .head,
+        .row {
+          grid-template-columns: 30px 1.7fr 1.2fr 1fr 55px;
+          font-size: 0.88rem;
+          padding: 10px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="/index.html">← Back to portfolio</a>
+
+      <section class="hero">
+        <div class="cover" aria-hidden="true">
+          <span class="sticker">HOBBIES<br />ALBUM</span>
+        </div>
+        <div>
+          <p>Profile Collection</p>
+          <h1>Recreation</h1>
+          <p class="hero-meta">Click any row to read details on the right panel</p>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <section class="table" aria-label="Out of work list">
+          <div class="head">
+            <span>#</span>
+            <span>Title</span>
+            <span>Album</span>
+            <span>Date added</span>
+            <span>◷</span>
+          </div>
+          <div id="hobbyTable"></div>
+        </section>
+
+        <aside class="detail-panel">
+          <h2 id="detailTitle">Select an item</h2>
+          <p id="detailMeta" class="detail-meta"></p>
+          <p id="detailText">PRESS PLAY</p>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const hobbies = [
+        {
+          title: "Horse Riding",
+          icon: "/showcase/icons/horse.svg?v=2",
+          artist: "Discipline Arc",
+          album: "Morning Routines",
+          dateAdded: "14 Feb 2026",
+          duration: "3:48",
+          detail:
+            "I was actively involved in horse riding during my early school years. My days often began at 5 a.m., where I would saddle up my horse, prepare it for training, and ensure it was properly cleaned and ready. These mornings demanded discipline, consistency, and responsibility. Training sessions typically lasted about an hour, focused on structured drills, control, and technique. I also had the opportunity to participate in horse racing, which further strengthened my composure, focus, and confidence."
+        },
+        {
+          title: "Keyboard",
+          icon: "/showcase/icons/keyboard.svg?v=2",
+          artist: "Creative Pursuits",
+          album: "Trinity Sessions",
+          dateAdded: "14 Feb 2026",
+          duration: "3:32",
+          detail:
+            "Keyboard has been a long-standing creative pursuit for me. I completed the Trinity College of London examinations up to Grade 3, which helped build a strong foundation in musical theory and performance. Learning and practicing the instrument cultivated patience, precision, and sustained concentration. Beyond formal training, playing the keyboard remains a personal space for creativity and mental clarity."
+        },
+        {
+          title: "Basketball & Volleyball",
+          icon: "/showcase/icons/volleyball.svg?v=2",
+          artist: "Athletic Mindset",
+          album: "Team Dynamics",
+          dateAdded: "14 Feb 2026",
+          duration: "4:01",
+          detail:
+            "Basketball has been one of my most serious sporting commitments, where I competed at a professional level. The sport significantly shaped my competitive mindset, decision-making ability, and teamwork skills. Volleyball, while initially a hobby, gradually became part of my daily routine. Both sports have played a key role in developing adaptability, coordination, and resilience in high-energy environments."
+        },
+        {
+          title: "Music",
+          icon: "/showcase/icons/music.svg?v=2",
+          artist: "Listening Journal",
+          album: "Influence Library",
+          dateAdded: "14 Feb 2026",
+          duration: "3:22",
+          detail:
+            "Music is a constant presence in my life and a major source of inspiration. I’m particularly drawn to artists such as Frank Ocean, Daniel Caesar, Mac DeMarco, Steve Lacy, Fleetwood Mac, and Pink Floyd. Their styles and creativity resonate with me, influencing both my focus and perspective. For me, music is more than entertainment - it’s a space for reflection, energy, and expression."
+        }
+      ];
+
+      const hobbyTable = document.getElementById('hobbyTable');
+      const detailTitle = document.getElementById('detailTitle');
+      const detailMeta = document.getElementById('detailMeta');
+      const detailText = document.getElementById('detailText');
+      let activeIndex = 0;
+      let isPlaying = false;
+      let revealProgress = 0;
+      let rafId = null;
+      let lastTs = 0;
+      const revealDurationMs = 9500;
+
+      function renderTable() {
+        hobbyTable.innerHTML = '';
+
+        hobbies.forEach((item, index) => {
+          const track = document.createElement('article');
+          track.className = 'track';
+
+          const row = document.createElement('button');
+          row.type = 'button';
+          const isCurrent = activeIndex === index;
+          const showControl = isCurrent && isPlaying;
+          row.className = `row${isCurrent ? ' active' : ''}${showControl ? ' show-control' : ''}`;
+          const iconGlyph = isCurrent && isPlaying ? "⏸" : "▶";
+          row.innerHTML = `
+            <span class="num-cell">
+              <span class="num-index">${index + 1}</span>
+              <button class="num-control" type="button" data-index="${index}" aria-label="${isCurrent && isPlaying ? 'Pause' : 'Play'} ${item.title} details">${iconGlyph}</button>
+            </span>
+            <span class="title-cell">
+              <img class="hobby-icon" src="${item.icon}" alt="${item.title} icon" />
+              <span>
+                <div>${item.title}</div>
+                <div class="sub">${item.artist}</div>
+              </span>
+            </span>
+            <span>${item.album}</span>
+            <span>${item.dateAdded}</span>
+            <span class="duration">${item.duration}</span>
+          `;
+
+          row.addEventListener('click', () => {
+            activeIndex = index;
+            stopReveal();
+            revealProgress = 0;
+            renderTable();
+            updateDetails(item, false);
+          });
+
+          track.appendChild(row);
+          hobbyTable.appendChild(track);
+        });
+
+        hobbyTable.querySelectorAll('.num-control').forEach((button) => {
+          button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const index = Number(button.dataset.index);
+            if (activeIndex !== index) {
+              activeIndex = index;
+              stopReveal();
+              revealProgress = 0;
+            }
+            togglePlay();
+            renderTable();
+          });
+        });
+      }
+
+      function updateDetails(item, reveal) {
+        detailTitle.textContent = item.title;
+        detailMeta.textContent = `${item.artist} • ${item.album} • ${item.dateAdded}`;
+        if (!reveal) {
+          detailText.textContent = "Press play on the row image to reveal this hobby.";
+          return;
+        }
+        const charCount = Math.floor(item.detail.length * revealProgress);
+        detailText.textContent = item.detail.slice(0, charCount);
+      }
+
+      function stopReveal() {
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        isPlaying = false;
+      }
+
+      function tick(ts) {
+        if (!isPlaying) {
+          return;
+        }
+        if (!lastTs) {
+          lastTs = ts;
+        }
+        const dt = ts - lastTs;
+        lastTs = ts;
+        revealProgress = Math.min(1, revealProgress + dt / revealDurationMs);
+        updateDetails(hobbies[activeIndex], true);
+        if (revealProgress >= 1) {
+          stopReveal();
+          renderTable();
+          return;
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function togglePlay() {
+        if (isPlaying) {
+          stopReveal();
+          updateDetails(hobbies[activeIndex], true);
+          return;
+        }
+        isPlaying = true;
+        lastTs = 0;
+        if (revealProgress >= 1) {
+          revealProgress = 0;
+        }
+        updateDetails(hobbies[activeIndex], true);
+        rafId = requestAnimationFrame(tick);
+      }
+
+      renderTable();
+      updateDetails(hobbies[0], false);
+    </script>
+  </body>
+</html>

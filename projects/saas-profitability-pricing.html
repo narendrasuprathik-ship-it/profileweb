@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaaS Profitability Pricing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/projects/case-study.css" />
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="/index.html">← Back to portfolio</a>
+      <section class="hero">
+        <div class="cover"><span class="sticker">CASE<br/>STUDY</span></div>
+        <div>
+          <h1>SaaS Profitability Pricing</h1>
+          <p class="hero-meta">Manipal Institute of Technology • May 2024 - July 2024</p>
+          <p class="hero-summary">Used regression and ensemble modeling across cohorts to identify profitable pricing interventions and reduce churn pressure.</p>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <article class="metric"><p class="value" data-target="43" data-suffix="%">0%</p><p class="label">ARR Lift</p></article>
+        <article class="metric"><p class="value" data-target="5" data-suffix="%">0%</p><p class="label">Churn Reduction</p></article>
+        <article class="metric"><p class="value" data-target="4" data-suffix="%">0%</p><p class="label">LTV Increase</p></article>
+      </section>
+
+      <nav class="tabs" aria-label="Case sections">
+        <button class="tab active" data-panel="overview">Overview</button>
+        <button class="tab" data-panel="build">Modeling</button>
+        <button class="tab" data-panel="impact">Business Impact</button>
+      </nav>
+
+      <section class="panel active" data-panel="overview">
+        <ul>
+          <li>Segmented SaaS businesses into three cohorts by subscriber scale.</li>
+          <li>Identified pricing metrics most associated with profitability outcomes.</li>
+          <li>Built decision framework for practical pricing adjustments.</li>
+        </ul>
+      </section>
+
+      <section class="panel" data-panel="build">
+        <ul>
+          <li>Applied logistic regression and ensemble methods for profitability prediction.</li>
+          <li>Designed a 3C analytical pipeline to diagnose under-performance patterns.</li>
+          <li>Generated actionable forecasts under different pricing scenarios.</li>
+        </ul>
+      </section>
+
+      <section class="panel" data-panel="impact">
+        <ul>
+          <li>Observed approximately 43% ARR increase across modeled cohorts.</li>
+          <li>Estimated around 5% reduction in churn with adjusted plans.</li>
+          <li>Projected around 4% lift in customer lifetime value.</li>
+        </ul>
+      </section>
+
+      <section class="expandables">
+        <details>
+          <summary>Decision quality improvement</summary>
+          <p>Moving from static pricing to model-backed adjustments improved both retention and revenue confidence without overfitting to one segment.</p>
+        </details>
+        <details>
+          <summary>Next enhancement</summary>
+          <p>I would include elasticity-aware experimentation loops and monthly retraining windows for dynamic pricing adaptation.</p>
+        </details>
+      </section>
+    </main>
+    <script src="/projects/case-study.js"></script>
+  </body>
+</html>

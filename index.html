@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify-Style Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside class="left-panel">
+        <p class="panel-label">Showcase</p>
+        <nav class="showcase-tabs" aria-label="Profile sections">
+          <button class="tab-btn active" data-section="me">About me</button>
+          <button class="tab-btn" data-section="hobbies">Recreation</button>
+        </nav>
+      </aside>
+
+      <main class="album-page">
+        <header class="hero">
+          <div id="heroCover" class="cover-art" aria-hidden="true">
+            <span class="sticker">PARENTAL<br />IDEAS</span>
+          </div>
+          <div class="hero-copy">
+            <p class="hero-type">Album</p>
+            <h1>Suprathik Narendra</h1>
+            <p class="hero-meta">
+              <span class="avatar"></span>
+              <strong>Portfolio</strong>
+              <span>2026</span>
+              <span>4 songs</span>
+              <span>15 min 46 sec</span>
+            </p>
+          </div>
+        </header>
+
+        <section class="content">
+          <div class="controls">
+            <button id="playAll" class="play-btn" aria-label="Next project">
+              <span></span>
+            </button>
+            <button class="circle-btn" aria-label="Save">+</button>
+            <button class="circle-btn" aria-label="More">...</button>
+            <span class="list-label">List</span>
+          </div>
+
+          <div class="now-bar" id="nowBar">
+            <p class="now-title" id="nowTitle">Now viewing: Founder's Office Automation</p>
+            <p class="now-sub" id="nowSub">Purezen • Founder's Office • Work Experience</p>
+            <a id="caseLink" href="#" rel="noreferrer">Open case study</a>
+          </div>
+
+          <section class="track-table" aria-label="Projects and work experience">
+            <div class="table-head row">
+              <span>#</span>
+              <span>Title</span>
+              <span class="clock" aria-hidden="true">◷</span>
+            </div>
+            <div id="trackList"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div id="pageTransition" class="page-transition" aria-hidden="true">
+      <div class="transition-cover"></div>
+      <p class="transition-kicker">Opening case study</p>
+      <h2 id="transitionTitle">Loading...</h2>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
