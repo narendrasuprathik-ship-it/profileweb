@@ -5,7 +5,7 @@ const tracks = [
     role: "Founder's Office",
     kind: "Work Experience",
     duration: "4:12",
-    link: "/projects/purezen-founders-office.html?v=12",
+    link: "projects/purezen-founders-office.html?v=12",
     explicit: true
   },
   {
@@ -14,7 +14,7 @@ const tracks = [
     role: "Finance + ML Case Analysis",
     kind: "Project",
     duration: "3:58",
-    link: "/projects/ather-case-analysis.html?v=12",
+    link: "projects/ather-case-analysis.html?v=12",
     explicit: false
   },
   {
@@ -23,7 +23,7 @@ const tracks = [
     role: "Python Security Engineering",
     kind: "Project",
     duration: "4:25",
-    link: "/projects/web-vulnerability-scanner.html?v=12",
+    link: "projects/web-vulnerability-scanner.html?v=12",
     explicit: true
   },
   {
@@ -32,7 +32,7 @@ const tracks = [
     role: "ML + Pricing Strategy",
     kind: "Project",
     duration: "3:11",
-    link: "/projects/saas-profitability-pricing.html?v=12",
+    link: "projects/saas-profitability-pricing.html?v=12",
     explicit: false
   }
 ];
@@ -113,11 +113,11 @@ function setSection(sectionKey) {
 tabButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (btn.dataset.section === "me") {
-      window.location.href = "/showcase/me.html";
+      window.location.href = "showcase/me.html";
       return;
     }
     if (btn.dataset.section === "hobbies") {
-      window.location.href = "/showcase/hobbies.html";
+      window.location.href = "showcase/hobbies.html";
       return;
     }
     setSection(btn.dataset.section);
