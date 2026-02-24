@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suprathik Narendra | Leadership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --text: #fff;
+        --muted: #b3b3b3;
+        --accent: #1ed760;
+        --line: rgba(255,255,255,0.1);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Montserrat, Arial, sans-serif;
+        color: var(--text);
+        background: #090909;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 72vh;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 14% -10%, rgba(132, 177, 213, 0.34), transparent 42%),
+          radial-gradient(circle at 86% -18%, rgba(74, 122, 160, 0.22), transparent 40%),
+          linear-gradient(180deg, #769bb9 0%, #466d89 22%, #26495f 44%, #153043 60%, rgba(9,9,9,0.86) 78%, rgba(9,9,9,0) 100%);
+      }
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 16px 70px;
+      }
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .hero {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        gap: 20px;
+        align-items: end;
+      }
+      .cover {
+        width: 230px;
+        aspect-ratio: 1;
+        border-radius: 6px;
+        background-image: url("../assets/casestudy_danielceasar.png");
+        background-size: cover;
+        background-position: center 58%;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+        position: relative;
+        overflow: hidden;
+      }
+      .cover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, rgba(0,0,0,0.52));
+      }
+      .sticker {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        z-index: 1;
+        background: #fff;
+        color: #111;
+        font-size: 0.54rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        padding: 4px 6px;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 4rem);
+        line-height: 0.94;
+      }
+      .meta {
+        margin-top: 12px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .kpis {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .kpi {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(0,0,0,0.35);
+        padding: 12px;
+      }
+      .kpi .value {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+      .kpi .label {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(0,0,0,0.35);
+        padding: 12px;
+      }
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+      .card p {
+        margin: 0;
+        line-height: 1.55;
+        color: #d9e4ee;
+      }
+      .list {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .list li {
+        margin-bottom: 7px;
+        color: #d9e4ee;
+      }
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .cover { width: min(320px, 100%); }
+        .kpis { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="../index.html">← Back to portfolio</a>
+
+      <section class="hero">
+        <div class="cover"><span class="sticker">LEADERSHIP<br />TRACK</span></div>
+        <div>
+          <h1>Leadership</h1>
+          <p class="meta">Community-led execution, brand ownership, and team coordination.</p>
+        </div>
+      </section>
+
+      <section class="kpis">
+        <article class="kpi"><p class="value">2</p><p class="label">Leadership Roles</p></article>
+        <article class="kpi"><p class="value">NULL OWASP</p><p class="label">Tech Community Focus</p></article>
+        <article class="kpi"><p class="value">Nele Foundation</p><p class="label">Marketing Leadership</p></article>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Head of Social Media - NULL OWASP Chapter, MIT</h2>
+          <ul class="list">
+            <li>Led chapter communication strategy and audience-facing content planning.</li>
+            <li>Managed visibility initiatives for security-focused activities and events.</li>
+            <li>Coordinated messaging to improve participation and consistency.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Head of Marketing - Nele Foundation</h2>
+          <ul class="list">
+            <li>Owned outreach and campaign execution for foundation initiatives.</li>
+            <li>Aligned communication with audience intent and program outcomes.</li>
+            <li>Collaborated with teams to improve campaign planning and delivery.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Leadership Style</h2>
+          <p>I focus on clarity, ownership, and execution cadence. I break large goals into practical tasks, communicate expectations early, and keep teams aligned through measurable checkpoints.</p>
+        </article>
+
+        <article class="card">
+          <h2>Key Learnings</h2>
+          <p>Leading communities taught me stakeholder management, decision-making under uncertainty, and how to build repeatable systems that scale beyond individual effort.</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

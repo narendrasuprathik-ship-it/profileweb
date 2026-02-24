@@ -26,6 +26,88 @@ body {
   grid-template-columns: 280px 1fr;
 }
 
+.home-main {
+  min-height: 100vh;
+  padding: 34px 28px 50px;
+  background:
+    radial-gradient(circle at 14% -8%, rgba(130, 175, 212, 0.33), transparent 36%),
+    linear-gradient(180deg, #224863 0%, #142b3d 35%, #0a121a 60%, #090909 100%);
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.home-kicker {
+  margin: 0 0 8px;
+  color: #c2d2e2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.home-subtitle {
+  margin: 12px 0 0;
+  max-width: 760px;
+  font-size: clamp(1rem, 2.6vw, 1.3rem);
+  color: #eef3f8;
+}
+
+.home-copy {
+  margin: 12px 0 0;
+  max-width: 760px;
+  color: #ccdae7;
+  line-height: 1.55;
+}
+
+.home-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.home-actions a {
+  text-decoration: none;
+  color: #08170d;
+  background: var(--spotify);
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 9px 13px;
+}
+
+.home-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.34);
+}
+
+.home-card h2 {
+  margin: 0 0 8px;
+}
+
+.home-card p {
+  margin: 0 0 12px;
+  color: #d5e2ee;
+  line-height: 1.5;
+}
+
+.home-card a {
+  color: #9df4c0;
+  text-decoration: none;
+  font-weight: 700;
+}
+
 .left-panel {
   padding: 20px 14px;
   background: #000;
@@ -86,7 +168,7 @@ body {
   position: relative;
   overflow: hidden;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
-  background-image: url("assets/IMG_0889.PNG");
+  background-image: url("assets/casestudy_danielceasar.png");
   background-size: cover;
   background-position: center 58%;
 }
@@ -431,7 +513,7 @@ body {
   width: min(34vw, 320px);
   aspect-ratio: 1;
   border-radius: 8px;
-  background-image: url("assets/IMG_0889.PNG");
+  background-image: url("assets/casestudy_danielceasar.png");
   background-size: cover;
   background-position: center 58%;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
@@ -479,6 +561,10 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
   .now-bar {
     flex-direction: column;
     align-items: flex-start;
@@ -514,6 +600,11 @@ body {
   .section-nav {
     padding: 0 16px;
   }
+
+  .home-main {
+    padding: 24px 16px 32px;
+  }
+
 
   .row {
     grid-template-columns: 30px 1fr 54px;

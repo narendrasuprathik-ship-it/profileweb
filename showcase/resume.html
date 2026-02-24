@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suprathik Narendra | Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #090909;
+        background:
+          radial-gradient(circle at 14% -12%, rgba(131, 178, 216, 0.36), transparent 42%),
+          radial-gradient(circle at 86% -18%, rgba(74, 122, 160, 0.24), transparent 40%),
+          linear-gradient(180deg, #759ab8 0%, #456c88 22%, #26485f 44%, #152e42 60%, rgba(9, 9, 9, 0.86) 78%, rgba(9, 9, 9, 0) 100%);
+        font-family: "Montserrat", Arial, sans-serif;
+        color: #fff;
+      }
+
+      body {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 340ms ease, transform 340ms ease;
+      }
+
+      body.page-ready {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      body.page-exit {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      .wrap {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 28px 20px 42px;
+      }
+
+      .viewer {
+        width: min(100%, 1320px);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(10, 14, 20, 0.8);
+        box-shadow: 0 24px 56px rgba(0, 0, 0, 0.48);
+        animation: viewerIn 520ms ease both;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        background: rgba(3, 7, 13, 0.94);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .title {
+        margin: 0;
+        font-size: 0.96rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: lowercase;
+      }
+
+      .back {
+        text-decoration: none;
+        color: #1ed760;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .back:hover { color: #39e879; }
+
+      .doc-area {
+        display: grid;
+        place-items: start center;
+        padding: 22px 18px 20px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+      }
+
+      .resume-image {
+        width: min(var(--native-width, 1020px), calc(100vw - 72px));
+        height: auto;
+        display: block;
+        background: #fff;
+        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.38);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 420ms ease, transform 420ms ease;
+      }
+
+      .resume-image.ready {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes viewerIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="viewer" aria-label="Resume">
+        <header class="topbar">
+          <h1 class="title">resume</h1>
+          <a class="back" href="../index.html">← Back to portfolio</a>
+        </header>
+        <div class="doc-area">
+          <img id="resumeImage" class="resume-image" src="../assets/resume-exact.png" alt="Resume" />
+        </div>
+      </section>
+    </main>
+    <script>
+      const EXIT_MS = 300;
+      window.addEventListener("pageshow", () => {
+        document.body.classList.add("page-ready");
+      });
+
+      const img = document.getElementById("resumeImage");
+      img.addEventListener("load", () => {
+        const clamped = Math.max(860, Math.min(img.naturalWidth * 0.9, 1080));
+        img.style.setProperty("--native-width", clamped + "px");
+        requestAnimationFrame(() => img.classList.add("ready"));
+      });
+
+      document.querySelectorAll("a[href]").forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("#") || link.target === "_blank") return;
+          event.preventDefault();
+          document.body.classList.remove("page-ready");
+          document.body.classList.add("page-exit");
+          window.setTimeout(() => {
+            window.location.href = href;
+          }, EXIT_MS);
+        });
+      });
+    </script>
+  </body>
+</html>

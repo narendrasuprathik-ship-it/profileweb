@@ -66,6 +66,8 @@ const storyProblem = document.getElementById("storyProblem");
 const storyApproach = document.getElementById("storyApproach");
 const storyTools = document.getElementById("storyTools");
 const storyResult = document.getElementById("storyResult");
+const isWorkPage = window.location.pathname.includes("/showcase/work.html");
+const basePrefix = isWorkPage ? "../" : "";
 
 let currentIndex = 0;
 
@@ -73,9 +75,10 @@ function navigateWithTransition(url, title) {
   if (!url || url === "#") {
     return;
   }
+  const resolvedUrl = url.startsWith("http") ? url : `${basePrefix}${url}`;
 
   if (!pageTransition || !transitionTitle) {
-    window.location.href = url;
+    window.location.href = resolvedUrl;
     return;
   }
 
@@ -83,7 +86,7 @@ function navigateWithTransition(url, title) {
   pageTransition.classList.add("active");
 
   window.setTimeout(() => {
-    window.location.href = url;
+    window.location.href = resolvedUrl;
   }, 520);
 }
 
@@ -132,6 +135,9 @@ function setTrack(index) {
 }
 
 function setSection(sectionKey) {
+  if (!sectionKey) {
+    return;
+  }
   tabButtons.forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.section === sectionKey);
   });
@@ -139,12 +145,28 @@ function setSection(sectionKey) {
 
 tabButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
+    if (btn.dataset.nav) {
+      window.location.href = btn.dataset.nav;
+      return;
+    }
     if (btn.dataset.section === "me") {
-      window.location.href = "showcase/me.html";
+      window.location.href = isWorkPage ? "me.html" : "showcase/me.html";
       return;
     }
     if (btn.dataset.section === "hobbies") {
-      window.location.href = "showcase/hobbies.html";
+      window.location.href = isWorkPage ? "hobbies.html" : "showcase/hobbies.html";
+      return;
+    }
+    if (btn.dataset.section === "leadership") {
+      window.location.href = isWorkPage ? "leadership.html" : "showcase/leadership.html";
+      return;
+    }
+    if (btn.dataset.section === "resume") {
+      window.location.href = isWorkPage ? "../assets/Suprathik_Narendra_Resume.pdf" : "assets/Suprathik_Narendra_Resume.pdf";
+      return;
+    }
+    if (btn.dataset.section === "work") {
+      window.location.href = isWorkPage ? "work.html" : "showcase/work.html";
       return;
     }
     setSection(btn.dataset.section);
@@ -164,10 +186,16 @@ if (heroCover) {
   });
 }
 
-playAll.addEventListener("click", () => {
-  const next = (currentIndex + 1) % tracks.length;
-  setTrack(next);
-});
+if (playAll) {
+  playAll.addEventListener("click", () => {
+    const next = (currentIndex + 1) % tracks.length;
+    setTrack(next);
+  });
+}
 
-setTrack(0);
-setSection("me");
+if (trackList && nowTitle && nowSub && caseLink) {
+  setTrack(0);
+  if (Array.from(tabButtons).some((btn) => btn.dataset.section)) {
+    setSection("work");
+  }
+}

@@ -3,28 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify-Style Portfolio</title>
+    <title>Suprathik Narendra | Work</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="app-layout">
       <aside class="left-panel">
         <p class="panel-label">Showcase</p>
         <nav class="showcase-tabs" aria-label="Profile sections">
-          <button class="tab-btn" data-section="me">About me</button>
-          <button class="tab-btn" data-section="hobbies">Recreation</button>
-          <button class="tab-btn" data-section="leadership">Leadership</button>
-          <button class="tab-btn" data-nav="showcase/resume.html" data-section="resume">Resume</button>
+          <button class="tab-btn" data-nav="me.html">About me</button>
+          <button class="tab-btn" data-nav="hobbies.html">Recreation</button>
+          <button class="tab-btn" data-nav="leadership.html">Leadership</button>
+          <button class="tab-btn" data-nav="resume.html">Resume</button>
+          <button class="tab-btn active" data-nav="work.html">Work</button>
         </nav>
       </aside>
 
       <main class="album-page">
+        <div style="padding: 18px 30px 0;">
+          <a class="back" href="../index.html">← Back to portfolio</a>
+        </div>
         <header class="hero">
           <div id="heroCover" class="cover-art" aria-hidden="true">
             <span class="sticker">PARENTAL<br />IDEAS</span>
@@ -114,7 +118,7 @@
             <div class="contact-links">
               <a href="mailto:suprathik.mitblr2023@learner.manipal.edu">Email</a>
               <a href="https://github.com/narendrasuprathik-ship-it" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="showcase/me.html">About Me Page</a>
+              <a href="me.html">About Me Page</a>
             </div>
           </section>
         </section>
@@ -127,6 +131,6 @@
       <h2 id="transitionTitle">Loading...</h2>
     </div>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>
