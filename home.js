@@ -1,9 +1,9 @@
-const navButtons = document.querySelectorAll('.tab-btn[data-nav]');
+const pills = Array.from(document.querySelectorAll('.landing-v2-pill'));
 
-navButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const target = btn.dataset.nav;
-    if (!target) return;
-    window.location.href = target;
+window.addEventListener('load', () => {
+  document.body.classList.add('landing-ready');
+  pills.forEach((pill, index) => {
+    pill.style.setProperty('--delay', `${index * 70}ms`);
+    pill.classList.add('show');
   });
 });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify-Style Portfolio</title>
+    <title>Suprathik Narendra | Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,116 +17,35 @@
       <aside class="left-panel">
         <p class="panel-label">Showcase</p>
         <nav class="showcase-tabs" aria-label="Profile sections">
-          <button class="tab-btn" data-section="me">About me</button>
-          <button class="tab-btn" data-section="hobbies">Recreation</button>
-          <button class="tab-btn" data-section="leadership">Leadership</button>
-          <button class="tab-btn" data-nav="showcase/resume.html" data-section="resume">Resume</button>
+          <a class="tab-btn active" href="index.html">Home</a>
+          <a class="tab-btn" href="showcase/projects.html">Projects</a>
+          <a class="tab-btn" href="showcase/me.html">About me</a>
+          <a class="tab-btn" href="showcase/hobbies.html">Recreation</a>
+          <a class="tab-btn" href="showcase/leadership.html">Leadership</a>
+          <a class="tab-btn" href="showcase/skills.html">Skills</a>
+          <a class="tab-btn" href="showcase/resume.html">Resume</a>
         </nav>
       </aside>
 
-      <main class="album-page">
-        <header class="hero">
-          <div id="heroCover" class="cover-art" aria-hidden="true">
-            <span class="sticker">PARENTAL<br />IDEAS</span>
-          </div>
-          <div class="hero-copy">
-            <p class="hero-type">Album</p>
-            <h1>Suprathik Narendra</h1>
-            <p class="hero-intro">Hi, I'm Suprathik - CS student and aspiring cybersecurity developer building practical, high-impact systems.</p>
-            <p class="hero-meta">
-              <span class="avatar"></span>
-              <strong>Portfolio</strong>
-              <span>2026</span>
-              <span>4 songs</span>
-              <span>15 min 46 sec</span>
-            </p>
-          </div>
-        </header>
+      <main class="landing-v2" aria-label="Home">
+        <div class="landing-v2-bg" aria-hidden="true"></div>
+        <section class="landing-v2-inner">
+          <p class="landing-v2-kicker">Portfolio</p>
+          <h1 class="landing-v2-title">Hi, I’m Suprathik</h1>
+          <p class="landing-v2-sub">Cybersecurity, AI, systems, and product-focused execution.</p>
 
-        <nav class="section-nav" aria-label="Portfolio sections">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <section class="content">
-          <div class="controls">
-            <button id="playAll" class="play-btn" aria-label="Next project">
-              <span></span>
-            </button>
-            <button class="circle-btn" aria-label="Save">+</button>
-            <button class="circle-btn" aria-label="More">...</button>
-            <span class="list-label">List</span>
-          </div>
-
-          <div class="now-bar" id="nowBar">
-            <p class="now-title" id="nowTitle">Now viewing: Founder's Office Automation</p>
-            <p class="now-sub" id="nowSub">Purezen • Founder's Office • Work Experience</p>
-            <a id="caseLink" href="#" rel="noreferrer">Open case study</a>
-          </div>
-
-          <section class="track-table" aria-label="Projects and work experience">
-            <div class="table-head row">
-              <span>#</span>
-              <span>Title</span>
-              <span class="clock" aria-hidden="true">◷</span>
-            </div>
-            <div id="trackList"></div>
-          </section>
-
-          <section id="projects" class="info-section">
-            <h2>Project Story</h2>
-            <div id="projectStory" class="story-grid">
-              <article class="story-card">
-                <h3>Problem</h3>
-                <p id="storyProblem"></p>
-              </article>
-              <article class="story-card">
-                <h3>Approach</h3>
-                <p id="storyApproach"></p>
-              </article>
-              <article class="story-card">
-                <h3>Tools Used</h3>
-                <p id="storyTools"></p>
-              </article>
-              <article class="story-card">
-                <h3>Outcome</h3>
-                <p id="storyResult"></p>
-              </article>
-            </div>
-          </section>
-
-          <section id="about" class="info-section">
-            <h2>About</h2>
-            <p>
-              I'm a computer science student focused on cybersecurity, systems, and applied problem-solving.
-              I enjoy building technical solutions that are grounded in clear reasoning and measurable outcomes.
-            </p>
-            <p>
-              My work spans growth automation, machine-learning-driven analysis, and security tooling. I value
-              clean implementation, structured experimentation, and understanding the why behind each decision.
-            </p>
-          </section>
-
-          <section id="contact" class="info-section contact-section">
-            <h2>Contact</h2>
-            <p>Open to internships, projects, and collaborations in security, product engineering, and systems.</p>
-            <div class="contact-links">
-              <a href="mailto:suprathik.mitblr2023@learner.manipal.edu">Email</a>
-              <a href="https://github.com/narendrasuprathik-ship-it" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="showcase/me.html">About Me Page</a>
-            </div>
-          </section>
+          <nav class="landing-v2-nav" aria-label="Sections">
+            <a class="landing-v2-pill" href="showcase/projects.html">Projects</a>
+            <a class="landing-v2-pill" href="showcase/me.html">About Me</a>
+            <a class="landing-v2-pill" href="showcase/hobbies.html">Recreation</a>
+            <a class="landing-v2-pill" href="showcase/leadership.html">Leadership</a>
+            <a class="landing-v2-pill" href="showcase/skills.html">Skills</a>
+            <a class="landing-v2-pill" href="showcase/resume.html">Resume</a>
+          </nav>
         </section>
       </main>
     </div>
 
-    <div id="pageTransition" class="page-transition" aria-hidden="true">
-      <div class="transition-cover"></div>
-      <p class="transition-kicker">Opening case study</p>
-      <h2 id="transitionTitle">Loading...</h2>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="home.js"></script>
   </body>
 </html>

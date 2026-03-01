@@ -66,8 +66,12 @@ const storyProblem = document.getElementById("storyProblem");
 const storyApproach = document.getElementById("storyApproach");
 const storyTools = document.getElementById("storyTools");
 const storyResult = document.getElementById("storyResult");
-const isWorkPage = window.location.pathname.includes("/showcase/work.html");
-const basePrefix = isWorkPage ? "../" : "";
+const trackDetails = document.getElementById("trackDetails");
+const nowHint = document.getElementById("nowHint");
+const isShowcaseProjectsPage =
+  window.location.pathname.includes("/showcase/work.html") ||
+  window.location.pathname.includes("/showcase/projects.html");
+const basePrefix = isShowcaseProjectsPage ? "../" : "";
 
 let currentIndex = 0;
 
@@ -103,16 +107,12 @@ function renderTracks() {
       <span class="track-num">${index + 1}</span>
       <span class="track-main">
         <span class="track-title">${track.title}</span>
-        <span class="track-sub">${explicit}${track.company} • ${track.role} • ${track.kind}</span>
+        <span class="track-sub">${explicit}${track.company}</span>
       </span>
       <span class="track-duration">${track.duration}</span>
     `;
 
     row.addEventListener("click", () => {
-      if (index === currentIndex) {
-        navigateWithTransition(track.link, track.title);
-        return;
-      }
       setTrack(index);
     });
     trackList.appendChild(row);
@@ -123,14 +123,35 @@ function setTrack(index) {
   currentIndex = index;
   const track = tracks[index];
   nowTitle.textContent = `Now viewing: ${track.title}`;
-  nowSub.textContent = `${track.company} • ${track.role} • ${track.kind}`;
+  nowSub.textContent = `${track.company} • ${track.kind}`;
   caseLink.href = track.link;
-  caseLink.textContent = `Open case study: ${track.title}`;
+  caseLink.textContent = `Open full case study: ${track.title} ↗`;
   caseLink.setAttribute("aria-label", `Open case study for ${track.title}`);
+  if (nowHint) nowHint.textContent = "Preview updated. Open full case study to see full details.";
   if (storyProblem) storyProblem.textContent = track.problem;
   if (storyApproach) storyApproach.textContent = track.approach;
   if (storyTools) storyTools.textContent = track.tools;
   if (storyResult) storyResult.textContent = track.result;
+  if (trackDetails) {
+    trackDetails.innerHTML = `
+      <article class="detail-card">
+        <p class="detail-kicker">${track.kind}</p>
+        <h3>${track.title}</h3>
+        <p><strong>Problem:</strong> ${track.problem}</p>
+        <p><strong>Approach:</strong> ${track.approach}</p>
+        <p><strong>Tools:</strong> ${track.tools}</p>
+        <p><strong>Outcome:</strong> ${track.result}</p>
+        <a class="detail-link" href="${track.link}">Open full case study ↗</a>
+      </article>
+    `;
+    const detailLink = trackDetails.querySelector(".detail-link");
+    if (detailLink) {
+      detailLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        navigateWithTransition(track.link, track.title);
+      });
+    }
+  }
   renderTracks();
 }
 
@@ -150,23 +171,31 @@ tabButtons.forEach((btn) => {
       return;
     }
     if (btn.dataset.section === "me") {
-      window.location.href = isWorkPage ? "me.html" : "showcase/me.html";
+      window.location.href = isShowcaseProjectsPage ? "me.html" : "showcase/me.html";
       return;
     }
     if (btn.dataset.section === "hobbies") {
-      window.location.href = isWorkPage ? "hobbies.html" : "showcase/hobbies.html";
+      window.location.href = isShowcaseProjectsPage ? "hobbies.html" : "showcase/hobbies.html";
       return;
     }
     if (btn.dataset.section === "leadership") {
-      window.location.href = isWorkPage ? "leadership.html" : "showcase/leadership.html";
+      window.location.href = isShowcaseProjectsPage ? "leadership.html" : "showcase/leadership.html";
+      return;
+    }
+    if (btn.dataset.section === "skills") {
+      window.location.href = isShowcaseProjectsPage ? "skills.html" : "showcase/skills.html";
       return;
     }
     if (btn.dataset.section === "resume") {
-      window.location.href = isWorkPage ? "../assets/Suprathik_Narendra_Resume.pdf" : "assets/Suprathik_Narendra_Resume.pdf";
+      window.location.href = isShowcaseProjectsPage ? "resume.html" : "showcase/resume.html";
+      return;
+    }
+    if (btn.dataset.section === "projects") {
+      window.location.href = isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html";
       return;
     }
     if (btn.dataset.section === "work") {
-      window.location.href = isWorkPage ? "work.html" : "showcase/work.html";
+      window.location.href = isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html";
       return;
     }
     setSection(btn.dataset.section);
@@ -196,6 +225,6 @@ if (playAll) {
 if (trackList && nowTitle && nowSub && caseLink) {
   setTrack(0);
   if (Array.from(tabButtons).some((btn) => btn.dataset.section)) {
-    setSection("work");
+    setSection("projects");
   }
 }

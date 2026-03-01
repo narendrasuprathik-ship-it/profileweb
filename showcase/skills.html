@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suprathik Narendra | Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --text: #fff;
+        --muted: #b3b3b3;
+        --line: rgba(255, 255, 255, 0.1);
+        --accent: #1ed760;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Montserrat, Arial, sans-serif;
+        color: var(--text);
+        background: #090909;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto 0;
+        height: 72vh;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(circle at 18% -8%, rgba(132, 176, 214, 0.35), transparent 42%),
+          radial-gradient(circle at 84% -18%, rgba(73, 121, 159, 0.22), transparent 40%),
+          linear-gradient(180deg, #7498b7 0%, #416b89 22%, #23445e 44%, #152f43 60%, rgba(9, 9, 9, 0.86) 78%, rgba(9, 9, 9, 0) 100%);
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 34px 16px 70px;
+      }
+
+      .back {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .hero {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 20px;
+        align-items: end;
+      }
+
+      .cover {
+        width: 220px;
+        aspect-ratio: 1;
+        border-radius: 6px;
+        background-image: url("../assets/casestudy_danielceasar.png");
+        background-size: cover;
+        background-position: center 58%;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sticker {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        background: #fff;
+        color: #111;
+        font-size: 0.54rem;
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: 0.05em;
+        padding: 4px 6px;
+      }
+
+      .type { margin: 0 0 8px; }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 4.4rem);
+        line-height: 0.95;
+      }
+
+      .meta {
+        margin-top: 12px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        background: rgba(0, 0, 0, 0.36);
+      }
+
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 1rem;
+      }
+
+      .chip-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .chip {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-size: 0.84rem;
+        color: #e5eef6;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .tools {
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.36);
+      }
+
+      .tool-head,
+      .tool-row {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 90px;
+        gap: 10px;
+        align-items: center;
+        padding: 11px 14px;
+      }
+
+      .tool-head {
+        color: var(--muted);
+        border-bottom: 1px solid var(--line);
+        font-size: 0.9rem;
+      }
+
+      .tool-row {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .tool-row:last-child { border-bottom: none; }
+
+      .level {
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.15);
+        overflow: hidden;
+      }
+
+      .fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #54e592, #1ed760);
+      }
+
+      .pct {
+        justify-self: end;
+        color: #d9e5ee;
+        font-weight: 700;
+      }
+
+      @media (max-width: 860px) {
+        .hero { grid-template-columns: 1fr; }
+        .cover { width: min(300px, 100%); }
+        .grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 640px) {
+        .tool-head,
+        .tool-row { grid-template-columns: 1fr; }
+        .pct { justify-self: start; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="../index.html">← Back to portfolio</a>
+
+      <section class="hero">
+        <div class="cover" aria-hidden="true">
+          <span class="sticker">SKILLS<br />STACK</span>
+        </div>
+        <div>
+          <p class="type">Capabilities</p>
+          <h1>Skills & Tools</h1>
+          <p class="meta">Core technologies I use across cybersecurity, AI, development, and product work.</p>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Skill groups">
+        <article class="card">
+          <h2>Programming</h2>
+          <div class="chip-wrap">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">C</span>
+            <span class="chip">C++</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Cybersecurity</h2>
+          <div class="chip-wrap">
+            <span class="chip">AppSec</span>
+            <span class="chip">OWASP Top 10</span>
+            <span class="chip">Threat Modeling</span>
+            <span class="chip">Risk Assessment</span>
+            <span class="chip">Secure Coding</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Data & AI</h2>
+          <div class="chip-wrap">
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Computer Vision</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Prompt Engineering</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Tools & Product</h2>
+          <div class="chip-wrap">
+            <span class="chip">Figma</span>
+            <span class="chip">MS Office Suite</span>
+            <span class="chip">Advanced Shopify</span>
+            <span class="chip">Scapy</span>
+            <span class="chip">Requests</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Frameworks</h2>
+          <div class="chip-wrap">
+            <span class="chip">Flask</span>
+            <span class="chip">Argparse (CLI apps)</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">NumPy</span>
+            <span class="chip">scikit-learn</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Open Source Tools</h2>
+          <div class="chip-wrap">
+            <span class="chip">OWASP ZAP</span>
+            <span class="chip">Nmap</span>
+            <span class="chip">Wireshark</span>
+            <span class="chip">Metasploit (basics)</span>
+            <span class="chip">Burp Suite Community</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="tools" aria-label="Primary tools proficiency">
+        <div class="tool-head">
+          <span>Tool</span>
+          <span>Depth</span>
+          <span>Use</span>
+        </div>
+        <div class="tool-row">
+          <span>Python + Security Automation</span>
+          <div class="level"><div class="fill" style="width: 90%;"></div></div>
+          <span class="pct">High</span>
+        </div>
+        <div class="tool-row">
+          <span>SQL + Data Analysis</span>
+          <div class="level"><div class="fill" style="width: 84%;"></div></div>
+          <span class="pct">High</span>
+        </div>
+        <div class="tool-row">
+          <span>Power BI / Tableau</span>
+          <div class="level"><div class="fill" style="width: 78%;"></div></div>
+          <span class="pct">Strong</span>
+        </div>
+        <div class="tool-row">
+          <span>Figma + Product Design</span>
+          <div class="level"><div class="fill" style="width: 74%;"></div></div>
+          <span class="pct">Strong</span>
+        </div>
+        <div class="tool-row">
+          <span>Shopify Automation</span>
+          <div class="level"><div class="fill" style="width: 82%;"></div></div>
+          <span class="pct">High</span>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
