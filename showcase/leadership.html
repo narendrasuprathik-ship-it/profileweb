@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suprathik Narendra | Leadership</title>
+    <link rel="stylesheet" href="../styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -15,6 +16,38 @@
         --line: rgba(255,255,255,0.1);
       }
       * { box-sizing: border-box; }
+      .app-layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 280px 1fr;
+      }
+      .left-panel {
+        position: relative;
+        z-index: 2;
+        padding: 20px 14px;
+        background: #000;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .panel-label {
+        margin: 0 0 14px;
+        color: #b3b3b3;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .showcase-tabs { display: grid; gap: 8px; }
+      .tab-btn {
+        display: block;
+        text-decoration: none;
+        border-radius: 8px;
+        background: #121212;
+        color: #fff;
+        text-align: left;
+        padding: 10px 12px;
+        font-weight: 600;
+      }
+      .tab-btn.active { background: #262626; }
+      .tab-btn:hover { background: #1c1c1c; }
       body {
         margin: 0;
         font-family: Montserrat, Arial, sans-serif;
@@ -150,9 +183,27 @@
         .kpis { grid-template-columns: 1fr; }
         .grid { grid-template-columns: 1fr; }
       }
+      @media (max-width: 700px) {
+        .app-layout { grid-template-columns: 1fr; }
+        .left-panel { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .showcase-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
     </style>
   </head>
   <body>
+    <div class="app-layout">
+      <aside class="left-panel">
+        <p class="panel-label">Showcase</p>
+        <nav class="showcase-tabs" aria-label="Profile sections">
+          <a class="tab-btn" href="../index.html">Home</a>
+          <a class="tab-btn" href="projects.html">Projects</a>
+          <a class="tab-btn" href="me.html">About me</a>
+          <a class="tab-btn" href="hobbies.html">Recreation</a>
+          <a class="tab-btn active" href="leadership.html">Leadership</a>
+          <a class="tab-btn" href="skills.html">Skills</a>
+          <a class="tab-btn" href="resume.html">Resume</a>
+        </nav>
+      </aside>
     <main class="page">
       <a class="back" href="../index.html">← Back to portfolio</a>
 
@@ -200,5 +251,6 @@
         </article>
       </section>
     </main>
+    </div>
   </body>
 </html>

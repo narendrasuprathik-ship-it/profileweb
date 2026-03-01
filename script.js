@@ -72,6 +72,12 @@ const isShowcaseProjectsPage =
   window.location.pathname.includes("/showcase/work.html") ||
   window.location.pathname.includes("/showcase/projects.html");
 const basePrefix = isShowcaseProjectsPage ? "../" : "";
+const sectionVersion = "v=39";
+
+function withVersion(url) {
+  if (!url || url.startsWith("http")) return url;
+  return url.includes("?") ? `${url}&${sectionVersion}` : `${url}?${sectionVersion}`;
+}
 
 let currentIndex = 0;
 
@@ -125,23 +131,22 @@ function setTrack(index) {
   nowTitle.textContent = `Now viewing: ${track.title}`;
   nowSub.textContent = `${track.company} • ${track.kind}`;
   caseLink.href = track.link;
-  caseLink.textContent = `Open full case study: ${track.title} ↗`;
+  caseLink.textContent = `Read full case study: ${track.title} ↗`;
   caseLink.setAttribute("aria-label", `Open case study for ${track.title}`);
-  if (nowHint) nowHint.textContent = "Preview updated. Open full case study to see full details.";
+  if (nowHint) nowHint.textContent = "Preview updated. Use the green button to open the full case study.";
   if (storyProblem) storyProblem.textContent = track.problem;
   if (storyApproach) storyApproach.textContent = track.approach;
   if (storyTools) storyTools.textContent = track.tools;
   if (storyResult) storyResult.textContent = track.result;
   if (trackDetails) {
+    const preview = track.result.length > 120 ? `${track.result.slice(0, 117)}...` : track.result;
     trackDetails.innerHTML = `
       <article class="detail-card">
         <p class="detail-kicker">${track.kind}</p>
         <h3>${track.title}</h3>
-        <p><strong>Problem:</strong> ${track.problem}</p>
-        <p><strong>Approach:</strong> ${track.approach}</p>
-        <p><strong>Tools:</strong> ${track.tools}</p>
-        <p><strong>Outcome:</strong> ${track.result}</p>
-        <a class="detail-link" href="${track.link}">Open full case study ↗</a>
+        <p class="detail-mini">${track.company} • ${track.role}</p>
+        <p class="detail-preview">${preview}</p>
+        <a class="detail-link" href="${track.link}">Click to read full details ↗</a>
       </article>
     `;
     const detailLink = trackDetails.querySelector(".detail-link");
@@ -167,35 +172,35 @@ function setSection(sectionKey) {
 tabButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     if (btn.dataset.nav) {
-      window.location.href = btn.dataset.nav;
+      window.location.href = withVersion(btn.dataset.nav);
       return;
     }
     if (btn.dataset.section === "me") {
-      window.location.href = isShowcaseProjectsPage ? "me.html" : "showcase/me.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "me.html" : "showcase/me.html");
       return;
     }
     if (btn.dataset.section === "hobbies") {
-      window.location.href = isShowcaseProjectsPage ? "hobbies.html" : "showcase/hobbies.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "hobbies.html" : "showcase/hobbies.html");
       return;
     }
     if (btn.dataset.section === "leadership") {
-      window.location.href = isShowcaseProjectsPage ? "leadership.html" : "showcase/leadership.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "leadership.html" : "showcase/leadership.html");
       return;
     }
     if (btn.dataset.section === "skills") {
-      window.location.href = isShowcaseProjectsPage ? "skills.html" : "showcase/skills.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "skills.html" : "showcase/skills.html");
       return;
     }
     if (btn.dataset.section === "resume") {
-      window.location.href = isShowcaseProjectsPage ? "resume.html" : "showcase/resume.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "resume.html" : "showcase/resume.html");
       return;
     }
     if (btn.dataset.section === "projects") {
-      window.location.href = isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html");
       return;
     }
     if (btn.dataset.section === "work") {
-      window.location.href = isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html";
+      window.location.href = withVersion(isShowcaseProjectsPage ? "projects.html" : "showcase/projects.html");
       return;
     }
     setSection(btn.dataset.section);
