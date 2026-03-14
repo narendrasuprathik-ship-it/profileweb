@@ -31,16 +31,6 @@ A lightweight, multi-page portfolio inspired by Spotify’s UI. Each project is 
 - **Minimalist detail panel**: Short preview + clear CTA.
 - **Spotify-like visual system**: dark theme, album art, track tables, and subtle motion.
 
-## Local Preview
-From the repo root:
-```
-python3 -m http.server 8000
-```
-Then open:
-```
-http://127.0.0.1:8000/
-```
-
 ## Deployment (GitHub Pages)
 - Repo Settings → Pages
 - Source: `main` branch, `/root`
