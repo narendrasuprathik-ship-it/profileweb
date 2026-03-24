@@ -50,6 +50,19 @@ const tracks = [
     approach: "Modeled pricing-performance relationships using regression and ensemble methods across cohorts.",
     tools: "Logistic regression, ensemble modeling, cohort analytics, 3C pipeline",
     result: "Projected +43% ARR, ~5% churn reduction, and ~4% LTV uplift."
+  },
+  {
+    title: "Privacy-Preserving Location Sharing",
+    company: "Manipal Institute of Technology",
+    role: "Geo-Indistinguishability Research",
+    kind: "Project",
+    duration: "4:08",
+    link: "projects/privacy-preserving-location-sharing.html?v=12",
+    explicit: false,
+    problem: "Sharing raw GPS traces exposes users to inference attacks and sensitive location disclosure.",
+    approach: "Applied Planar Laplace noise with configurable ε/blur to protect coordinates while enabling utility.",
+    tools: "Python, Streamlit, Folium, geo-indistinguishability, privacy-utility metrics",
+    result: "Quantified privacy-utility trade-offs and demonstrated how lower ε raises privacy while reducing LBS accuracy."
   }
 ];
 

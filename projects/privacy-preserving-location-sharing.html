@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy-Preserving Location Sharing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="case-study.css" />
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="../showcase/projects.html">← Back to portfolio</a>
+      <section class="hero">
+        <div class="cover"><span class="sticker">CASE<br/>STUDY</span></div>
+        <div>
+          <h1>Privacy-Preserving Location Sharing</h1>
+          <p class="hero-meta">Manipal Institute of Technology • Aug 2025 - Oct 2025</p>
+          <p class="hero-summary">Built a geo-indistinguishability engine with Planar Laplace noise and a live Streamlit + Folium dashboard to explore privacy-utility trade-offs.</p>
+        </div>
+      </section>
+
+      <section class="metrics">
+        <article class="metric"><p class="value" data-target="3" data-suffix=" modes">0 modes</p><p class="label">Adversarial Simulations</p></article>
+        <article class="metric"><p class="value" data-target="1" data-prefix="ε">ε0</p><p class="label">Configurable Privacy Budget</p></article>
+        <article class="metric"><p class="value" data-target="1" data-suffix=" demo">0 demo</p><p class="label">Live Bangalore Map Sandbox</p></article>
+      </section>
+
+      <nav class="tabs" aria-label="Case sections">
+        <button class="tab active" data-panel="overview">Overview</button>
+        <button class="tab" data-panel="build">Implementation</button>
+        <button class="tab" data-panel="impact">Evaluation</button>
+      </nav>
+
+      <section class="panel active" data-panel="overview">
+        <ul>
+          <li>Designed a geo-indistinguishability engine using Planar Laplace noise.</li>
+          <li>Added configurable ε and blur radius to protect GPS signals.</li>
+          <li>Focused on real-world location-based service (LBS) privacy risks.</li>
+        </ul>
+      </section>
+
+      <section class="panel" data-panel="build">
+        <ul>
+          <li>Built a Streamlit + Folium dashboard with a Bangalore live demo.</li>
+          <li>Implemented privacy controls and exportable noisy datasets.</li>
+          <li>Generated privacy/utility metrics for downstream analysis.</li>
+        </ul>
+      </section>
+
+      <section class="panel" data-panel="impact">
+        <ul>
+          <li>Quantified trade-offs using mean error and service accuracy.</li>
+          <li>Simulated adversarial attacks (home, trajectory, clustering).</li>
+          <li>Showed lower ε boosts privacy while degrading LBS accuracy.</li>
+        </ul>
+      </section>
+
+      <section class="expandables">
+        <details>
+          <summary>Key insight</summary>
+          <p>Privacy budgets directly shape utility; ε tuning must match the risk profile of each LBS scenario.</p>
+        </details>
+        <details>
+          <summary>Next enhancement</summary>
+          <p>Integrate adaptive ε selection based on context sensitivity and user intent.</p>
+        </details>
+      </section>
+    </main>
+    <script src="case-study.js"></script>
+  </body>
+</html>
